@@ -1,12 +1,1 @@
-Builds/MacOSX/Info.plist
-Builds/MacOSX/RecentFilesMenuTemplate.nib
-Builds/MacOSX/build/Release/PizzaKnobFilterPlugin.component/Contents/Info.plist
-Builds/MacOSX/build/Release/PizzaKnobFilterPlugin.component/Contents/PkgInfo
-Builds/MacOSX/build/Release/PizzaKnobFilterPlugin.component/Contents/MacOS/PizzaKnobFilterPlugin
-Builds/MacOSX/build/Release/PizzaKnobFilterPlugin.component/Contents/Resources/PizzaKnobFilterPlugin.rsrc
-Builds/MacOSX/build/Release/PizzaKnobFilterPlugin.component/Contents/Resources/RecentFilesMenuTemplate.nib
-Builds/MacOSX/PizzaKnobFilterPlugin.xcodeproj/project.pbxproj
-Builds/MacOSX/PizzaKnobFilterPlugin.xcodeproj/project.xcworkspace/contents.xcworkspacedata
-Builds/MacOSX/PizzaKnobFilterPlugin.xcodeproj/project.xcworkspace/xcuserdata/COx2.xcuserdatad/UserInterfaceState.xcuserstate
-Builds/MacOSX/PizzaKnobFilterPlugin.xcodeproj/xcuserdata/COx2.xcuserdatad/xcschemes/PizzaKnobFilterPlugin.xcscheme
-Builds/MacOSX/PizzaKnobFilterPlugin.xcodeproj/xcuserdata/COx2.xcuserdatad/xcschemes/xcschememanagement.plist
+Builds/

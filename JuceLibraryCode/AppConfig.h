@@ -229,7 +229,7 @@
  #define JucePlugin_Name                   "Oh! TSUMAMI"
 #endif
 #ifndef  JucePlugin_Desc
- #define JucePlugin_Desc                   "SImple Audio Filter FX with PizzaKnob"
+ #define JucePlugin_Desc                   "Simple Audio Filter FX with PizzaKnob"
 #endif
 #ifndef  JucePlugin_Manufacturer
  #define JucePlugin_Manufacturer           "Omantic Records"
