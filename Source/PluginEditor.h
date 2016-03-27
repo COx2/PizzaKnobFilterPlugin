@@ -64,10 +64,6 @@ public:
     // Binary resources:
     static const char* bg_png;
     static const int bg_pngSize;
-    static const char* ohtsumami1_png;
-    static const int ohtsumami1_pngSize;
-    static const char* ohtsumami2_png;
-    static const int ohtsumami2_pngSize;
     static const char* mark_png;
     static const int mark_pngSize;
     static const char* credit_png;
