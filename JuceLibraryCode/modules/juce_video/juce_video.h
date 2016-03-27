@@ -2,7 +2,7 @@
 // module headers to the correct external folder.
 
 #if defined (JUCER_XCODE_MAC_F6D2F4CF)
- #include "../../../../../../Applications/juce-grapefruit-osx/modules/juce_video/juce_video.h"
+ #include "../../../../../Applications/juce-grapefruit-osx/modules/juce_video/juce_video.h"
 #elif defined (JUCER_VS2015_78A5022)
  #include "C:\SDK Location\ROLI\JUCE\juce-grapefruit-windows\modules\juce_video\juce_video.h"
 #else

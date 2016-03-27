@@ -51,20 +51,20 @@
                        isDebug="0" optimisation="3" targetName="PizzaKnobFilterPlugin"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
-        <MODULEPATH id="juce_core" path="../../../Applications/juce-grapefruit-osx/modules"/>
-        <MODULEPATH id="juce_events" path="../../../Applications/juce-grapefruit-osx/modules"/>
-        <MODULEPATH id="juce_graphics" path="../../../Applications/juce-grapefruit-osx/modules"/>
-        <MODULEPATH id="juce_data_structures" path="../../../Applications/juce-grapefruit-osx/modules"/>
-        <MODULEPATH id="juce_gui_basics" path="../../../Applications/juce-grapefruit-osx/modules"/>
-        <MODULEPATH id="juce_gui_extra" path="../../../Applications/juce-grapefruit-osx/modules"/>
-        <MODULEPATH id="juce_cryptography" path="../../../Applications/juce-grapefruit-osx/modules"/>
-        <MODULEPATH id="juce_video" path="../../../Applications/juce-grapefruit-osx/modules"/>
-        <MODULEPATH id="juce_opengl" path="../../../Applications/juce-grapefruit-osx/modules"/>
-        <MODULEPATH id="juce_audio_basics" path="../../../Applications/juce-grapefruit-osx/modules"/>
-        <MODULEPATH id="juce_audio_devices" path="../../../Applications/juce-grapefruit-osx/modules"/>
-        <MODULEPATH id="juce_audio_formats" path="../../../Applications/juce-grapefruit-osx/modules"/>
-        <MODULEPATH id="juce_audio_processors" path="../../../Applications/juce-grapefruit-osx/modules"/>
-        <MODULEPATH id="juce_audio_plugin_client" path="../../../Applications/juce-grapefruit-osx/modules"/>
+        <MODULEPATH id="juce_core" path="../../Applications/juce-grapefruit-osx/modules"/>
+        <MODULEPATH id="juce_events" path="../../Applications/juce-grapefruit-osx/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../Applications/juce-grapefruit-osx/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../Applications/juce-grapefruit-osx/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../Applications/juce-grapefruit-osx/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../Applications/juce-grapefruit-osx/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../Applications/juce-grapefruit-osx/modules"/>
+        <MODULEPATH id="juce_video" path="../../Applications/juce-grapefruit-osx/modules"/>
+        <MODULEPATH id="juce_opengl" path="../../Applications/juce-grapefruit-osx/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../Applications/juce-grapefruit-osx/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../Applications/juce-grapefruit-osx/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../Applications/juce-grapefruit-osx/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../Applications/juce-grapefruit-osx/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../Applications/juce-grapefruit-osx/modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
     <VS2015 targetFolder="Builds/VisualStudio2015" vstFolder="" vst3Folder="">
