@@ -70,6 +70,8 @@ public:
     static const int ohtsumami2_pngSize;
     static const char* mark_png;
     static const int mark_pngSize;
+    static const char* credit_png;
+    static const int credit_pngSize;
 
 
 private:
@@ -85,10 +87,10 @@ private:
     ScopedPointer<FilmstripSlider> Q;
     ScopedPointer<FilmstripToggleButton> Toggle;
     ScopedPointer<ComboBox> ModeSelector;
-    ScopedPointer<ImageButton> imageButton;
     ScopedPointer<ImageButton> imageButton2;
     ScopedPointer<HyperlinkButton> hyperlinkButton;
     ScopedPointer<HyperlinkButton> hyperlinkButton2;
+    ScopedPointer<ImageButton> imageButton;
     Image cachedImage_bg_png_1;
 
 
