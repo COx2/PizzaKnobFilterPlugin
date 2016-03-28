@@ -40,8 +40,8 @@
 namespace ProjectInfo
 {
     const char* const  projectName    = "PizzaKnobFilterPlugin";
-    const char* const  versionString  = "0.9.5";
-    const int          versionNumber  = 0x905;
+    const char* const  versionString  = "0.9.7";
+    const int          versionNumber  = 0x907;
 }
 #endif
 

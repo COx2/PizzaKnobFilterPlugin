@@ -229,7 +229,7 @@
  #define JucePlugin_Name                   "Oh! TSUMAMI"
 #endif
 #ifndef  JucePlugin_Desc
- #define JucePlugin_Desc                   "Simple Audio Filter FX with PizzaKnob"
+ #define JucePlugin_Desc                   "Stimulating Audio Filter FX with PizzaKnob"
 #endif
 #ifndef  JucePlugin_Manufacturer
  #define JucePlugin_Manufacturer           "Omantic Records"
@@ -265,13 +265,13 @@
  #define JucePlugin_EditorRequiresKeyboardFocus  0
 #endif
 #ifndef  JucePlugin_Version
- #define JucePlugin_Version                0.9.5
+ #define JucePlugin_Version                0.9.7
 #endif
 #ifndef  JucePlugin_VersionCode
- #define JucePlugin_VersionCode            0x905
+ #define JucePlugin_VersionCode            0x907
 #endif
 #ifndef  JucePlugin_VersionString
- #define JucePlugin_VersionString          "0.9.5"
+ #define JucePlugin_VersionString          "0.9.7"
 #endif
 #ifndef  JucePlugin_VSTUniqueID
  #define JucePlugin_VSTUniqueID            JucePlugin_PluginCode
