@@ -2,6 +2,7 @@
 #include <math.h>
 #include <algorithm>
 
+#define SAMPLE_RATE 96000.0f //set maximum frequency. 96khz
 
 // --------------------------------------------------------------------------------
 // CMyFilter
@@ -13,22 +14,22 @@ private:
 
 	float out1, out2;
 	float in1, in2;
-
+    
 public:
 	inline CMyFilter();
 
 	inline float Process(float in);
 	inline void ClockProcess(float* inL, float* inR);
-	inline void SetFilter(int mode, float freq, float bw, float gain = 1.0f, float samplerate = 44100.0f);
+	inline void SetFilter(int mode, float freq, float bw, float gain = 1.0f, float samplerate = SAMPLE_RATE);
 
-	inline void LowPass(float freq, float q, float samplerate = 44100.0f);
-	inline void HighPass(float freq, float q, float samplerate = 44100.0f);
-	inline void BandPass(float freq, float bw, float samplerate = 44100.0f);
-	inline void Notch(float freq, float bw, float samplerate = 44100.0f);
-	inline void LowShelf(float freq, float q, float gain, float samplerate = 44100.0f);
-	inline void HighShelf(float freq, float q, float gain, float samplerate = 44100.0f);
-	inline void Peaking(float freq, float bw, float gain, float samplerate = 44100.0f);
-	inline void AllPass(float freq, float q, float samplerate = 44100.0f);
+	inline void LowPass(float freq, float q, float samplerate = SAMPLE_RATE);
+	inline void HighPass(float freq, float q, float samplerate = SAMPLE_RATE);
+	inline void BandPass(float freq, float bw, float samplerate = SAMPLE_RATE);
+	inline void Notch(float freq, float bw, float samplerate = SAMPLE_RATE);
+	inline void LowShelf(float freq, float q, float gain, float samplerate = SAMPLE_RATE);
+	inline void HighShelf(float freq, float q, float gain, float samplerate = SAMPLE_RATE);
+	inline void Peaking(float freq, float bw, float gain, float samplerate = SAMPLE_RATE);
+	inline void AllPass(float freq, float q, float samplerate = SAMPLE_RATE);
 	
 	enum FilterType { LP = 0, HP, BP, N, LoSh, HiSh, Peak, AP};
 };

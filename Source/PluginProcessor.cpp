@@ -18,12 +18,14 @@ PizzaKnobFilterPluginAudioProcessor::PizzaKnobFilterPluginAudioProcessor()
     UserParams[MasterBypass] = 0.0f;//default to not bypassed
 	UserParams[Mode] = 0.0f;//default Width 1.0 (no change)
 	UserParams[Freq] = 1.0f;//default Width 1.0 (no change)
-	UserParams[Q] = 0.1f;//default Width 1.0 (no change)
+	UserParams[Q] = 0.43f;//default Width 1.0 (no change)
 	UserParams[Volume] = 1.0f;//default Width 1.0 (no change)
 
 	UIUpdateFlag = true;//Request UI update
 
-	MultiFilter.SetFilter((int)UserParams[Mode], UserParams[Freq] * 1920.0f + 80.0f, UserParams[Q] * 19.9f + 0.1f);
+    MultiFilter.SetFilter((int)UserParams[Mode],
+                          20.0 * pow(1000.0, UserParams[Freq]),
+                          0.1 * pow(200.0, UserParams[Q]));
 }
 
 PizzaKnobFilterPluginAudioProcessor::~PizzaKnobFilterPluginAudioProcessor()
@@ -288,7 +290,9 @@ void PizzaKnobFilterPluginAudioProcessor::setParameter(int index, float newValue
 	default: return;
 	}
 	UIUpdateFlag = true;//Request UI update -- Some OSX hosts use alternate editors, this updates ours
-	MultiFilter.SetFilter((int)UserParams[Mode], UserParams[Freq] * 1920.0f + 80.0f, UserParams[Q] * 19.9f + 0.1f);
+	MultiFilter.SetFilter((int)UserParams[Mode],
+                          20.0 * pow(1000.0, UserParams[Freq]),
+                          0.1 * pow(200.0, UserParams[Q]));
 }
 
 //return parameter Name as string to HOST.
@@ -315,15 +319,17 @@ const String PizzaKnobFilterPluginAudioProcessor::getParameterText(int index)
 	case Mode: return UserParams[Mode] < 1.0f ? "LowPass":"HighPass";
 
 	case Freq:
-		return String((int)(UserParams[Freq] * 1920.0f + 80.0f)) + String("Hz");
-
+        return String((int)(20.0 * pow(1000.0, UserParams[Freq]))) + String("Hz");
+		
 	case Q:
-		return String((int)(UserParams[Q] * 19.9f + 0.1f));
+            
+		return String((0.1 * pow(200.0, UserParams[Q])), 2);
 
 	case Volume: return String(UserParams[Volume]);
 
 	default:return String::empty;
 	}
+    
 }
 
 //==============================================================================
