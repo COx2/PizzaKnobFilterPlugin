@@ -197,6 +197,7 @@ void PizzaKnobFilterPluginAudioProcessor::getStateInformation (MemoryBlock& dest
 	// as intermediaries to make it easy to save and load complex data.
 
 	//Save UserParams/Data to file
+	
 	XmlElement root("Root");
 	XmlElement *el;
 	el = root.createNewChildElement("Bypass");
@@ -207,8 +208,26 @@ void PizzaKnobFilterPluginAudioProcessor::getStateInformation (MemoryBlock& dest
 	el->addTextElement(String(UserParams[Freq]));
 	el = root.createNewChildElement("Q");
 	el->addTextElement(String(UserParams[Q]));
-
+	el = root.createNewChildElement("Volume");
+	el->addTextElement(String(UserParams[Volume]));
 	copyXmlToBinary(root, destData);
+	
+	/*
+	// Create an outer XML element..
+	XmlElement xml("MYPLUGINSETTINGS");
+
+	// add some attributes to it..
+	//xml.setAttribute("uiWidth", lastUIWidth);
+	//xml.setAttribute("uiHeight", lastUIHeight);
+
+	// Store the values of all our parameters, using their param ID as the XML attribute
+	for (int i = 0; i < getNumParameters(); ++i)
+		if (AudioProcessorParameterWithID* p = dynamic_cast<AudioProcessorParameterWithID*> (getParameters().getUnchecked(i)))
+			xml.setAttribute(p->paramID, p->getValue());
+
+	// then use this helper function to stuff it into the binary blob and return it..
+	copyXmlToBinary(xml, destData);
+	*/
 }
 
 void PizzaKnobFilterPluginAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
@@ -217,26 +236,60 @@ void PizzaKnobFilterPluginAudioProcessor::setStateInformation (const void* data,
 	// whose contents will have been created by the getStateInformation() call.
 
 	//Load UserParams/Data from file
-	/*
+	
 	XmlElement* pRoot = getXmlFromBinary(data, sizeInBytes);
 	if (pRoot != NULL)
 	{
-	forEachXmlChildElement((*pRoot), pChild)
+		forEachXmlChildElement((*pRoot), pChild)
+		{
+			if (pChild->hasTagName("Bypass"))
+			{
+				String text = pChild->getAllSubText();
+				setParameter(MasterBypass, text.getFloatValue());
+			}
+			else if (pChild->hasTagName("Mode"))
+			{
+				String text = pChild->getAllSubText();
+				setParameter(Parameters::Mode , text.getFloatValue());
+			}
+			else if (pChild->hasTagName("Freq"))
+			{
+				String text = pChild->getAllSubText();
+				setParameter(Parameters::Freq, text.getFloatValue());
+			}
+			else if (pChild->hasTagName("Q"))
+			{
+				String text = pChild->getAllSubText();
+				setParameter(Parameters::Q, text.getFloatValue());
+			}
+			else if (pChild->hasTagName("Volume"))
+			{
+				String text = pChild->getAllSubText();
+				setParameter(Parameters::Volume, text.getFloatValue());
+			}
+		}
+		delete pRoot;	
+	}
+	
+	/*
+	// This getXmlFromBinary() helper function retrieves our XML from the binary blob..
+	ScopedPointer<XmlElement> xmlState(getXmlFromBinary(data, sizeInBytes));
+
+	if (xmlState != nullptr)
 	{
-	if (pChild->hasTagName("Bypass"))
-	{
-	String text = pChild->getAllSubText();
-	setParameter(MasterBypass, text.getFloatValue());
-	}
-	else if (pChild->hasTagName("Tone"))
-	{
-	String text = pChild->getAllSubText();
-	setParameter(Tone, text.getFloatValue());
-	}
-	}
-	delete pRoot;	
-	}
-	*/
+		// make sure that it's actually our type of XML object..
+		if (xmlState->hasTagName("MYPLUGINSETTINGS"))
+		{
+			// ok, now pull out our last window size..
+			//lastUIWidth = xmlState->getIntAttribute("uiWidth", lastUIWidth);
+			//lastUIHeight = xmlState->getIntAttribute("uiHeight", lastUIHeight);
+
+			// Now reload our parameters..
+			for (int i = 0; i < getNumParameters(); ++i)
+				if (AudioProcessorParameterWithID* p = dynamic_cast<AudioProcessorParameterWithID*> (getParameters().getUnchecked(i)))
+					p->setValueNotifyingHost((float)xmlState->getDoubleAttribute(p->paramID, p->getValue()));
+		}
+	}*/
 	UIUpdateFlag = true;//Request UI update
 }
 
