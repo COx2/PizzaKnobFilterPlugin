@@ -14,23 +14,23 @@ private:
 
 	float out1, out2;
 	float in1, in2;
+
+	inline void LowPass(float freq, float q, float samplerate);
+	inline void HighPass(float freq, float q, float samplerate);
+	inline void BandPass(float freq, float bw, float samplerate);
+	inline void Notch(float freq, float bw, float samplerate);
+	inline void LowShelf(float freq, float q, float gain, float samplerate);
+	inline void HighShelf(float freq, float q, float gain, float samplerate);
+	inline void Peaking(float freq, float bw, float gain, float samplerate);
+	inline void AllPass(float freq, float q, float samplerate);
     
 public:
 	inline CMyFilter();
 
 	inline float Process(float in);
 	inline void ClockProcess(float* inL, float* inR);
-	inline void SetFilter(int mode, float freq, float bw, float gain = 1.0f, float samplerate = SAMPLE_RATE);
+	inline void SetFilter(int mode, float freq, float bw, float samplerate, float gain = 1.0f);
 
-	inline void LowPass(float freq, float q, float samplerate = SAMPLE_RATE);
-	inline void HighPass(float freq, float q, float samplerate = SAMPLE_RATE);
-	inline void BandPass(float freq, float bw, float samplerate = SAMPLE_RATE);
-	inline void Notch(float freq, float bw, float samplerate = SAMPLE_RATE);
-	inline void LowShelf(float freq, float q, float gain, float samplerate = SAMPLE_RATE);
-	inline void HighShelf(float freq, float q, float gain, float samplerate = SAMPLE_RATE);
-	inline void Peaking(float freq, float bw, float gain, float samplerate = SAMPLE_RATE);
-	inline void AllPass(float freq, float q, float samplerate = SAMPLE_RATE);
-	
 	enum FilterType { LP = 0, HP, BP, N, LoSh, HiSh, Peak, AP};
 };
 
@@ -39,7 +39,6 @@ public:
 // --------------------------------------------------------------------------------
 CMyFilter::CMyFilter()
 {
-
 	a0 = 1.0f;
 	a1 = 0.0f;
 	a2 = 0.0f;
@@ -79,37 +78,35 @@ void CMyFilter::ClockProcess(float* LeftSample, float* RightSample)
 	*RightSample = Process(*RightSample);
 }
 
-void CMyFilter::SetFilter(int mode, float freq, float bw, float gain, float samplerate)
+void CMyFilter::SetFilter(int mode, float freq, float bw, float samplerate, float gain)
 {
-	//Parameters Range Set. mininume -> maximum.
-	//freq = freq * 1920.0f + 80.0f; //max:2khz, min:80hz
-	//bw = bw * 23.0f + 1.0f;
+	freq = freq / 2.0f; //ex.200kHz -> 100kHz
 
     switch (mode)
 	{
 	case 0:
-		LowPass(freq, bw);
+		LowPass(freq, bw, samplerate);
 		break;
 	case 1:
-		HighPass(freq, bw);
+		HighPass(freq, bw, samplerate);
 		break;
 	case 2:
-		BandPass(freq, bw);
+		BandPass(freq, bw, samplerate);
 		break;
 	case 3:
-		Notch(freq, bw);
+		Notch(freq, bw, samplerate);
 		break;
 	case 4:
-		LowShelf(freq, bw, gain);
+		LowShelf(freq, bw, gain, samplerate);
 		break;
 	case 5:
-		HighShelf(freq, bw, gain);
+		HighShelf(freq, bw, gain, samplerate);
 		break;
 	case 6:
-		Peaking(freq, bw, gain);
+		Peaking(freq, bw, gain, samplerate);
 		break;
 	case 7:	
-		AllPass(freq, bw);
+		AllPass(freq, bw, samplerate);
 		break;
 	}
 }
@@ -197,7 +194,6 @@ void CMyFilter::HighShelf(float freq, float q, float gain, float samplerate)
 	b1 = -2.0f * A * ((A - 1.0f) + (A + 1.0f) * cos(omega));
 	b2 = A * ((A + 1.0f) + (A - 1.0f) * cos(omega) - beta * sin(omega));
 }
-
 
 void CMyFilter::Peaking(float freq, float bw, float gain, float samplerate)
 {

@@ -22,10 +22,6 @@ PizzaKnobFilterPluginAudioProcessor::PizzaKnobFilterPluginAudioProcessor()
 	UserParams[Volume] = 1.0f;//default Width 1.0 (no change)
 
 	UIUpdateFlag = true;//Request UI update
-
-    MultiFilter.SetFilter((int)UserParams[Mode],
-                          20.0 * pow(1000.0, UserParams[Freq]),
-                          0.1 * pow(200.0, UserParams[Q]));
 }
 
 PizzaKnobFilterPluginAudioProcessor::~PizzaKnobFilterPluginAudioProcessor()
@@ -161,6 +157,11 @@ void PizzaKnobFilterPluginAudioProcessor::processBlock (AudioSampleBuffer& buffe
 		}
     }
 
+	MultiFilter.SetFilter((int)UserParams[Mode],
+							20.0 * pow(1000.0, UserParams[Freq]),
+							0.1 * pow(200.0, UserParams[Q]),
+							(float)getSampleRate());
+
 	//Audio Process--------------------------------------------------------------
 	if (getNumInputChannels()<2 || UserParams[MasterBypass])
 	{
@@ -202,6 +203,11 @@ void PizzaKnobFilterPluginAudioProcessor::getStateInformation (MemoryBlock& dest
 	el->addTextElement(String(UserParams[MasterBypass]));
 	el = root.createNewChildElement("Mode");
 	el->addTextElement(String(UserParams[Mode]));
+	el = root.createNewChildElement("Freq");
+	el->addTextElement(String(UserParams[Freq]));
+	el = root.createNewChildElement("Q");
+	el->addTextElement(String(UserParams[Q]));
+
 	copyXmlToBinary(root, destData);
 }
 
@@ -290,9 +296,6 @@ void PizzaKnobFilterPluginAudioProcessor::setParameter(int index, float newValue
 	default: return;
 	}
 	UIUpdateFlag = true;//Request UI update -- Some OSX hosts use alternate editors, this updates ours
-	MultiFilter.SetFilter((int)UserParams[Mode],
-                          20.0 * pow(1000.0, UserParams[Freq]),
-                          0.1 * pow(200.0, UserParams[Q]));
 }
 
 //return parameter Name as string to HOST.
@@ -321,15 +324,13 @@ const String PizzaKnobFilterPluginAudioProcessor::getParameterText(int index)
 	case Freq:
         return String((int)(20.0 * pow(1000.0, UserParams[Freq]))) + String("Hz");
 		
-	case Q:
-            
+	case Q:            
 		return String((0.1 * pow(200.0, UserParams[Q])), 2);
 
 	case Volume: return String(UserParams[Volume]);
 
 	default:return String::empty;
 	}
-    
 }
 
 //==============================================================================
