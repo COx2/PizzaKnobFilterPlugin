@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="YTeIfc" name="PizzaKnobFilterPlugin" projectType="audioplug"
-              version="0.9.7" bundleIdentifier="com.omantic.PizzaKnobFilterPlugin"
+              version="1.0.0" bundleIdentifier="com.omantic.PizzaKnobFilterPlugin"
               includeBinaryInAppConfig="1" buildVST="1" buildVST3="1" buildAU="1"
               buildRTAS="0" buildAAX="0" pluginName="Oh! TSUMAMI" pluginDesc="Stimulating Audio Filter FX with PizzaKnob"
               pluginManufacturer="Omantic Records" pluginManufacturerCode="Manu"
