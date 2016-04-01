@@ -2,15 +2,15 @@
 
 <JUCERPROJECT id="YTeIfc" name="PizzaKnobFilterPlugin" projectType="audioplug"
               version="1.0.0" bundleIdentifier="com.omantic.PizzaKnobFilterPlugin"
-              includeBinaryInAppConfig="1" buildVST="1" buildVST3="1" buildAU="1"
+              includeBinaryInAppConfig="1" buildVST="1" buildVST3="0" buildAU="1"
               buildRTAS="0" buildAAX="0" pluginName="Oh! TSUMAMI" pluginDesc="Stimulating Audio Filter FX with PizzaKnob"
-              pluginManufacturer="Omantic Records" pluginManufacturerCode="Manu"
-              pluginCode="Ytei" pluginChannelConfigs="" pluginIsSynth="0" pluginWantsMidiIn="1"
-              pluginProducesMidiOut="0" pluginIsMidiEffectPlugin="0" pluginSilenceInIsSilenceOut="1"
-              pluginEditorRequiresKeys="0" pluginAUExportPrefix="PizzaKnobFilterPluginAU"
-              pluginRTASCategory="" aaxIdentifier="com.omantic.PizzaKnobFilterPlugin"
-              pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="4.1.0"
-              companyName="Omantic Records" companyWebsite="http://omantic.me/"
+              pluginManufacturer="Omantic Records" pluginManufacturerCode="OMNT"
+              pluginCode="Ytei" pluginChannelConfigs="{2, 2}" pluginIsSynth="0"
+              pluginWantsMidiIn="1" pluginProducesMidiOut="0" pluginIsMidiEffectPlugin="0"
+              pluginSilenceInIsSilenceOut="1" pluginEditorRequiresKeys="0"
+              pluginAUExportPrefix="PizzaKnobFilterPluginAU" pluginRTASCategory=""
+              aaxIdentifier="com.omantic.PizzaKnobFilterPlugin" pluginAAXCategory="AAX_ePlugInCategory_Dynamics"
+              jucerVersion="4.1.0" companyName="Omantic Records" companyWebsite="http://omantic.me/"
               pluginVSTCategory="">
   <MAINGROUP id="IZ67g4" name="PizzaKnobFilterPlugin">
     <GROUP id="{6FC6C284-DD3C-0C96-EBAB-0156B00F1343}" name="Source">
