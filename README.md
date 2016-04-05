@@ -31,7 +31,7 @@ So I've built under Windows and Mac OS X.
 1. Download Juce (http://www.juce.com/)
 2. Download the VST SDK (http://www.steinberg.net/en/company/developers.html)
 3. Run "The Projucer" executable included in Juce.
-4. Open JuceOPLVSTi.jucer
+4. Open PizzaKnobFilterPlugin .jucer
    - Make any changes to the GUI layout and components here (PluginEditor.cpp).
    - Save PluginEditor.cpp if modified
 5. Hit "Save Project and Open in Xcode". I use Xcode 7.
