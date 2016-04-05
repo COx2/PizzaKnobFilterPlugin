@@ -1,6 +1,10 @@
-# PizzaKnobFilterPlugin for VST/AudioUnits #
+## PizzaKnobFilterPlugin for VST/AudioUnits ##
 
 This VST/AudioUnits plugin effect provides an emulated High-Pass filter and Low-Pass filter with stimulying GUI.
+
+Current Version is V1.0.0
+
+License : GPL
 
 ## What's an PizzaKnobFilterPlugin? ##
 
@@ -33,3 +37,10 @@ So I've built under Windows and Mac OS X.
 5. Hit "Save Project and Open in Xcode". I use Xcode 7.
 6. Select the architecture x64(64bit) or x86(32bit).
 7. On default setting, When build succeed and automatic deploy to plugin directory.
+
+
+### Technologies Used ###
+  * C++ for the language
+  * JUCE for the framework/library
+  * Steinberg VST SDK
+  * Visual Studio for the IDE
