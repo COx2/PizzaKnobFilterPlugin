@@ -36,7 +36,7 @@ So I've built under Windows and Mac OS X.
    - Save PluginEditor.cpp if modified
 5. Hit "Save Project and Open in Xcode". I use Xcode 7.
 6. Select the architecture x64(64bit) or x86(32bit).
-7. On default setting, When build succeed and automatic deploy to plugin directory.
+7. On default setting, When build succeed and automatically deploy to plugin directory.
 
 
 ### Technologies Used ###
