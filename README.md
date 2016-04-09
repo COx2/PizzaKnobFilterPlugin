@@ -1,10 +1,18 @@
 ## PizzaKnobFilterPlugin for VST/AudioUnits ##
 
-This VST/AudioUnits plugin effect provides an emulated High-Pass filter and Low-Pass filter with stimulying GUI.
+Project Name : PizzaKnobFilterPlugin
 
-Current Version is V1.0.0
+Product Name : Oh! TSUMAMI (OmantiqueVST technology powered by TANZVOLK, injekted with a poison by OmanticRecords)
+
+Current Version : V1.0.0
 
 License : GPL
+
+[Omantic Records](http://omantic.me/ "Omantic Records")
+
+[TANZVOLK](http://tanzvolk.net/ "TANZVOLK")
+
+This VST/AudioUnits plugin effect provides an emulated High-Pass filter and Low-Pass filter with stimulying GUI.
 
 ## What's an PizzaKnobFilterPlugin? ##
 
